@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+    <head> 
+        <title>fsgbu, TrueSaaS POC</title>
+        <link href="css/netdna.bootstrapcdn.com_bootstrap_3.0.1_css_bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
+        <link href="css/netdna.bootstrapcdn.com_bootstrap_3.0.1_css_bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <script src="../libs/require/require.js" type="text/javascript"></script>
+        <link href="css/libs/style.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body class="container">
+        <nav class="navbar navbar-default navbar-inverse" role="navigation" style="margin-bottom: 2px;">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+
+                <a title="Spring IO" href="https://www.oracle.com/index.html" shape="rect"><img height="80" src="img/img3.jpg" /></a>
+                &nbsp;&nbsp;&nbsp;
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+
+                
+            </div>
+            <!-- /.navbar-collapse -->
+        </nav>
+
+    </body>
+    <body>
+        <!-- ko if: partyDataFetched -->
+        <h1 class="about-header">Party Details</h1> 
+        <div></div>
+        <dl class="dl-horizontal">
+            <label class="about-level" for="partyId" data-bind="text : 'Id :'"></label>
+            <span id="partyId" data-bind="text: partyData().id"></span><br/>
+            <label class="about-level" for="firstName" data-bind="text : 'First Name :'"></label>
+            <span id="firstName" data-bind="text: partyData().firstName"></span><br/>
+            <label class="about-level" for="description" data-bind="text : 'Description :'"></label>
+            <span id="description" data-bind="text: partyData().lastName"></span><br/>
+            <label class="about-level" for="sequenceNumber" data-bind="text : 'Sequence Number :'"></label>
+            <span id="sequenceNumber" data-bind="text : partyData().socialSecurityNumber"></span><br/><br/>
+            <label class="about-level" for="companyName" data-bind="text : 'Company Name :'"></label>
+            <span id="companyName" data-bind="text : partyData().companyName"></span><br/>
+            <label class="about-level" for="companyEmail" data-bind="text : 'Company Email :'"></label>
+            <span id="companyEmail" data-bind="text : partyData().companyEmail"></span><br/>
+            <label class="about-level" for="web" data-bind="text : 'Web Site :'"></label>
+            <span id="web" data-bind="text : partyData().companyWebsite"></span><br/>
+            <label class="about-level" for="companyPhone" data-bind="text : 'Company Phone :'"></label>
+            <span id="companyPhone" data-bind="text : partyData().phoneNumber1"></span><br/>
+            <label class="about-level" for="address" data-bind="text : 'Address :'"></label>
+            <span id="address" data-bind="text : partyData().address"></span><br/><br/>
+            <label class="about-level" for="city" data-bind="text : 'City :'"></label>
+            <span id="city" data-bind="text : partyData().city"></span><br/>
+            <label class="about-level" for="county" data-bind="text : 'County :'"></label>
+            <span id="county" data-bind="text : partyData().county"></span><br/>
+            <label class="about-level" for="zip" data-bind="text : 'Zip :'"></label>
+            <span id="zip" data-bind="text : partyData().zipCode"></span><br/>
+            <label class="about-level" for="phone" data-bind="text : 'Phone Number :'"></label>
+            <span id="phone" data-bind="text : partyData().phoneNumber2"></span><br/>
+            <label class="about-level" for="country" data-bind="text : 'Country :'"></label>
+            <span id="country" data-bind="text : partyData().country"></span><br/>
+            <label class="about-level" for="fico" data-bind="text : 'Fico :'"></label>
+            <span id="fico" data-bind="text : partyData().fico"></span><br/>
+      </dl>
+      
+        <div style="height: 2cm">&nbsp;</div><br>
+        <div style="text-align: right">
+            
+            
+            Options:  <a href="javascript:void(0)" style="font-size:18px; color:black;"  data-bind="click:function(){history.back();},text:'Home'"></a> | <a shape="rect" href="javascript:void(0)" style="font-size:18px; color:black;" data-bind="click:partyClicked,text:'Party Search'"></a>
+        <br>
+           </div>
+            <div class="row">
+
+                <div class="panel panel-default">
+                    <!--  <div class="panel-body">Follow Below Buttons for Useful Links.</div>  -->
+                    <div class="panel-footer clearfix">
+                        <div class="pull-left">
+                            <p> <font color="white" size="3"><i><b> Welcome To FSGBU Poplending Cloud Application </b></i></font></p>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        <footer align="center"><p style="font-size:14px; color:red; font-weight:bold; font-style:italic;">&copy; Copyright Oracle Financial Services Software, 2016-2017</p></footer>
+        <!-- /ko -->
+    </body>    
+</html>

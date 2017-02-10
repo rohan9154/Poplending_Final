@@ -1,0 +1,242 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+    <head> 
+        <title>fsgbu, TrueSaaS POC</title>
+        <link href="css/netdna.bootstrapcdn.com_bootstrap_3.0.1_css_bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
+        <link href="css/netdna.bootstrapcdn.com_bootstrap_3.0.1_css_bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <script src="../libs/require/require.js" type="text/javascript"></script>
+        <link href="css/libs/style.css" rel="stylesheet" type="text/css"/> 
+    </head>
+    <body class="container">
+        <nav class="navbar navbar-default navbar-inverse" role="navigation" style="margin-bottom: 2px;">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+
+                <a title="Spring IO" href="https://www.oracle.com/index.html" shape="rect"><img height="80" src="img/img3.jpg" /></a>
+                &nbsp;&nbsp;&nbsp;
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+
+                
+            </div>
+            <!-- /.navbar-collapse -->
+        </nav>
+
+    </body>
+
+    <body>
+        <!-- ko ifnot: partyDataFetched --><h1 class="about-party"> <strong>Party Search</strong> </h1><br></br>
+        <table>
+          <tr><td>
+        <div id="partysearch" class="login"> 
+            <h1> <strong>Party Search</strong> </h1>
+            <div class= "">
+                <div class="">
+                    <strong> <label class="login-input" for="partyid">Party Id</label> </strong>
+                    <input class="login-input" id="partyid"  placeholder="Enter Party Id" title="Must specify either a partyId or search text"
+                           type="text"
+                           data-bind="ojComponent: {component: 'ojInputText', invalidComponentTracker: tracker,
+                            value: partyid, validators: [{type: 'regExp', options: { pattern: '[0-9]{1,}', 
+                                                                     messageDetail: 'You must enter a party id that must be numeric'}}]}"/> 
+                </div>
+            </div>     
+            <br/>
+
+            <div class= "oj-form">
+                <div class="oj-form">
+                    <strong> <label class="login-input" for="partyname">Name Search</label> </strong> &nbsp                            
+                    <input class="login-input" id="partyname" placeholder="Enter partial name"
+                           type="text"
+                           data-bind="ojComponent: {component: 'ojInputText', 
+                           value: partyname}"/> 
+                </div>
+
+
+                <br/>
+                
+                <div class= "oj-form">
+                <div class= "oj-form">&nbsp;
+
+                    <input class="oj-form" id="submit" type="submit" value="Find"
+                           data-bind="click: buttonClick, 
+                       ojComponent: {component: 'ojButton', label: 'Find'}"/>
+                    <!-- ko if: showMessage -->
+                    <div class= "login-submit">
+                        <span style="color: black; font-size: 14px">Must specify either a partyId or search text</span>
+                    </div>
+                    <!-- /ko -->
+                </div>
+                
+
+                <!-- ko if: errorMessage-->
+                <!-- ko if: tempPartyName-->
+                <div style="color: red; font-size: 14px">
+                    Party <span style="color: black; font-size: 14px" data-bind="text: errorMessage"></span> for ' <span data-bind="text: tempPartyName"></span> '
+                </div>
+                <!--/ko -->
+                <!-- ko ifnot: tempPartyName-->
+
+                <div style="color: red; font-size: 14px">
+                    Party <span style="color: red; font-size: 14px" data-bind="text: errorMessage"></span>
+                </div>
+
+                <!--/ko -->
+
+                <!--/ko --> 
+
+                <!-- ko if: showMessageBothCred-->
+                <div class= "login-submit">
+                        <span style="color: red; font-size: 14px">Invalid search credentials..search either via Id or via name only </span>
+                    </div>
+              <!--/ko --> 
+                    
+              </div>
+                
+        
+              
+              </td>
+          </tr>
+          
+    </table>            
+              
+               
+              
+           
+        
+
+            
+        
+
+        <!-- /ko -->
+        <!-- ko if: partyDataFetched -->
+
+        <!-- ko if: partyid -->
+        
+        <h1 class="about-header">Party Details</h1> 
+
+        <dl class="dl-horizontal">
+            <label class="about-level" for="partyId" data-bind="text : 'Id :'"></label>
+            <span id="partyId" data-bind="text: partyDataWhenId().id"></span><br/>
+            <label class="about-level" for="firstName" data-bind="text : 'First Name :'"></label>
+            <span id="firstName" data-bind="text: partyDataWhenId().firstName"></span><br/>
+            <label class="about-level" for="description" data-bind="text : 'Description :'"></label>
+            <span id="description" data-bind="text: partyDataWhenId().lastName"></span><br/>
+            <label class="about-level" for="sequenceNumber" data-bind="text : 'Sequence Number :'"></label>
+            <span id="sequenceNumber" data-bind="text : partyDataWhenId().socialSecurityNumber"></span><br/><br/>
+            <label class="about-level" for="companyName" data-bind="text : 'Company Name :'"></label>
+            <span id="companyName" data-bind="text : partyDataWhenId().companyName"></span><br/>
+            <label class="about-level" for="companyEmail" data-bind="text : 'Company Email :'"></label>
+            <span id="companyEmail" data-bind="text : partyDataWhenId().companyEmail"></span><br/>
+            <label class="about-level" for="web" data-bind="text : 'Web Site :'"></label>
+            <span id="web" data-bind="text : partyDataWhenId().companyWebsite"></span><br/>
+            <label class="about-level" for="companyPhone" data-bind="text : 'Company Phone :'"></label>
+            <span id="companyPhone" data-bind="text : partyDataWhenId().phoneNumber1"></span><br/>
+            <label class="about-level" for="address" data-bind="text : 'Address :'"></label>
+            <span id="address" data-bind="text : partyDataWhenId().address"></span><br/><br/>
+            <label class="about-level" for="city" data-bind="text : 'City :'"></label>
+            <span id="city" data-bind="text : partyDataWhenId().city"></span><br/>
+            <label class="about-level" for="county" data-bind="text : 'County :'"></label>
+            <span id="county" data-bind="text : partyDataWhenId().county"></span><br/>
+            <label class="about-level" for="zip" data-bind="text : 'Zip :'"></label>
+            <span id="zip" data-bind="text : partyDataWhenId().zipCode"></span><br/>
+            <label class="about-level" for="phone" data-bind="text : 'Phone Number :'"></label>
+            <span id="phone" data-bind="text : partyDataWhenId().phoneNumber2"></span><br/>
+            <label class="about-level" for="country" data-bind="text : 'Country :'"></label>
+            <span id="country" data-bind="text : partyDataWhenId().country"></span><br/>
+            <label class="about-level" for="fico" data-bind="text : 'Fico :'"></label>
+            <span id="fico" data-bind="text : partyDataWhenId().fico"></span><br/>
+
+
+            <div style="text-align: right">
+                Options:  <a href="javascript:void(0)" style="font-size:18px; color:black;"  data-bind="click:backToPoplending,text:'Home'"></a> | <a href="javascript:void(0)" style="font-size:18px; color:black;" data-bind="click:partyClicked,text:'Party Search'"></a>
+            </div> 
+
+        </dl>
+
+        <div style="height: 2cm">&nbsp;</div>
+
+
+
+        <!-- /ko --> 
+        <!-- ko if: partyname --> 
+        <h class="about-party-Byname">Parties by Name</h><hr />
+
+
+        <div class="about-level-ojtable">
+            <p>
+                Parties whose owner contains ' <span data-bind="text: partyname"></span> '
+                are:
+            </p>
+
+        </div>
+        <br />
+        <div class="oj-xl-8 oj-lg-8 oj-md-6 oj-flex-item">
+            <table id="table" class="login" summary="Party List" aria-label="Party Table"
+                   data-bind="ojComponent: {component: 'ojTable', 
+                                    data: $data.datasource,
+                                    columnsDefault: {sortable: 'none'}, 
+                                    columns: [{headerText: 'Id', 
+                                               field: 'id'},
+                                              {headerText: 'Name', 
+                                               field: 'name'},
+                                              {headerText: 'SSN', 
+                                               field: 'socialSecurityNumber'},
+                                              {headerText: 'Company', 
+                                               field: 'companyName'},
+                                              {headerText: 'Website', 
+                                               field: 'companyWebsite'},
+                                              {headerText: 'Phone', 
+                                               field: 'phoneNumber1'},
+                                              {headerText: 'Address', 
+                                               field: 'address'},
+                                              {headerText: 'City', 
+                                               field: 'city'},
+                                              {headerText: 'Zip', 
+                                               field: 'zipCode'},
+                                              {headerText: 'Country', 
+                                               field: 'country'}
+                                              ]}">
+            </table>
+           
+            
+        </div> 
+
+
+        </div>
+        <!-- /ko -->
+        <!-- /ko -->
+        <br><br>
+
+                
+        
+       </div>
+       
+</body>
+    
+       
+    
+
+        </div> <!-- Container -->
+        <body>
+
+       <div class="row">
+
+                <div class="panel panel-default">
+                    <!--  <div class="panel-body">Follow Below Buttons for Useful Links.</div>  -->
+                    <div class="panel-footer clearfix">
+                        <div class="pull-left">
+                            <p> <font color="white" size="3"><i><b> Welcome To FSGBU Poplending Cloud Application </b></i></p>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+    
+        
+       
+        
+    </body>    
+</html>
